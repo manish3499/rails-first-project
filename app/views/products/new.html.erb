@@ -1,0 +1,20 @@
+<div>
+    <%= form_with url: "/products", method: :post do |form| %>
+    <%= form.label :title, "Title:" %>
+    <%= form.text_field :title %>
+    <br>
+    <%= form.label :price, "Price:" %>
+    <%= form.number_field :price, step: :any %>
+    <br>
+    <%= form.label :category, "Category:" %>
+    <%= form.text_field :category %>
+    <br>
+    <%= form.label :description, "Description:" %>
+    <%= form.text_field :description %>
+    <br>
+    <%= form.label :image, "Image url:" %>
+    <%= form.text_field :image %>
+    <br>
+    <%= form.submit "Submit" %>
+    <% end %>
+</div>

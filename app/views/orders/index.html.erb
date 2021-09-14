@@ -1,0 +1,27 @@
+<h1>Orders</h1>
+
+<% order_id = -1%>
+
+    <% @order_items_array.each do |order_item| %>
+        <% if order_id == -1 %>
+            <% order_id = order_item["order_id"]%>
+            <h3> Order #<%= order_id %></h3>
+            <ul>
+        <% elsif order_id != order_item["order_id"] %>
+            <h5> Total: <%= @orders_details[order_id][:total]%> </h5>
+            <h5> Dicount: <%= @orders_details[order_id][:discount]%> </h5>
+            <h5> Paid: <%= @orders_details[order_id][:total] - @orders_details[order_id][:discount]%> </h5>
+            </ul>
+            <% order_id = order_item["order_id"]%>
+            <h3> Order #<%= order_id %></h3>
+            <ul>
+        <% else %>
+        <% end %>
+        <li> product: <%= order_item["title"] %>, quantity: <%= order_item["quantity"]%>, price: <%= order_item["price"]%>, total: <%= order_item["price"] * order_item["quantity"]%>, order id: <%=order_item["order_id"] %></li>    
+    <%  end %>
+    <% if order_id != -1%>
+        <h5> Total: <%= @orders_details[order_id][:total]%> </h5>
+        <h5> Dicount: <%= @orders_details[order_id][:discount]%> </h5>
+        <h5> Paid: <%= @orders_details[order_id][:total] - @orders_details[order_id][:discount]%> </h5>
+    <% end %>
+</ul>

@@ -1,0 +1,23 @@
+<h1>Registeration#new</h1>
+<p>Find me in app/views/registeration/index.html.erb</p>
+
+<div>
+    <%= form_with url: "/registration", method: :post do |form| %>
+    <%= form.label :email, "Email:" %>
+    <%= form.text_field :email %>
+    <br>
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password %>
+    <br>
+    <%= form.label :password, "Confirm Password:" %>
+    <%= form.password_field :password_confirmation %>
+    <br>
+    <h5>Type:</h5>
+    <%= form.radio_button :usergroup, 'admin' %> 
+    <%= form.label :usergroup, 'Admin', :value => 'admin' %>
+    <%= form.radio_button :usergroup, 'customer' %>
+    <%= form.label :usergroup, 'Customer', :value => 'customer' %>
+    <br>
+    <%= form.submit "Submit" %>
+    <% end %>
+</div>
