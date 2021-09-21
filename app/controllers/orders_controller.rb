@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :check_login
+
   def create
     sql = "select * from cart_items left join products on cart_items.product_id = products.id where cart_items.order_id = -1 and cart_items.user_id = #{session[:user_id]}"
     @cart_items_array = ActiveRecord::Base.connection.exec_query(sql)
@@ -7,7 +9,13 @@ class OrdersController < ApplicationController
       @grand_total = @grand_total + (row["price"] * row["quantity"])
     end
 
-    discount = Coupon.find_by(code: params["coupon"]).discount_percent
+    coupon = Coupon.find_by(code: params["coupon"])
+    if coupon
+      discount = coupon.discount_percent
+    else
+      discount = 0
+    end
+
     discount = @grand_total * discount
     paid = @grand_total - discount
 
@@ -31,6 +39,12 @@ class OrdersController < ApplicationController
     orders.each do |item|
       @orders_details[item.id] = {total: item.total, discount: item.discount}
     end
+  end
 
+  def check_login
+    if !session[:user_id]
+      redirect_to "/login"
+      return
+    end
   end
 end

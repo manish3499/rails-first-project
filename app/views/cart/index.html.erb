@@ -1,6 +1,3 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
-
 <ul>
     <% @cart_items_array.each do |cart_item| %>
         <li> product: <%= cart_item["title"] %>, quantity: <%= cart_item["quantity"]%>, price: <%= cart_item["price"]%>, total: <%= cart_item["price"] * cart_item["quantity"]%> </li>    
@@ -9,7 +6,7 @@
 
 <h4>Grand total: <%= @grand_total%></h4>
 
-<p> Use coupon code "10OFF", "20OFF", "30OFF" ... "90OFF" to avail respective discounts. Do not leave blank</p>
+<p> Use coupon code "10OFF", "20OFF", "30OFF" ... "90OFF" to avail respective discounts.</p>
 
 <div>
     <%= form_with url: "/orders", method: :post do |form| %>

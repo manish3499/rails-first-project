@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  
+  resources :coupons
   get 'orders/create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "login#index"
+  root "products#index"
 
   get "/login", to: "login#index"
   post "/login", to: "login#create"
+  get "/logout", to: "login#logout"
 
   get "/registration/new", to: "registration#new"
   post "/registration", to: "registration#create"

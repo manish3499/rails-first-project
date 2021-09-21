@@ -19,14 +19,23 @@
      padding: 0; 
 } /* Remove body margins */
 
-.amazon {color:orange; background-color: black;}         /* Unvisited link  */
-.amazon:visited {color:orange; background-color: black} /* Visited link    */
-.amazon:hover {color: orange; background-color: black;}   /* Mouse over link */
-.amazon:active {color:orange; background-color: black;}  /* Selected link   */
+/* .amazon {color:orange; background-color: black;}         
+.amazon:visited {color:orange; background-color: black} 
+.amazon:hover {color: orange; background-color: black;}   
+.amazon:active {color:orange; background-color: black;}  Selected link   */
 
 .login-header {
     width: 100%;
-    height: 50px;
-    background-color: black;
+    /*height: 50px;*/
+    background-color: olive;
     font-size: 30px;
-} 
+    padding: 30px;
+}
+
+.main {
+    padding: 20px;
+}
+
+a:hover li{
+    color: #fff;
+    background-color: #000; }

@@ -1,13 +1,17 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
-
-<h1>Products <a href="/cart">visit cart</a> <a href="/orders">past orders</a></h1>
+<h1>Products 
+<!--<a href="/cart">visit cart</a> <a href="/orders">past orders</a>
+  <% if session[:user_id]%>
+    <a href="/logout">logout</a>
+  <% else %>
+    <a href="/login">login</a>
+  <% end %>-->
+</h1>
 
 <ul>
   <% @products.each do |product| %>
     <a href="/products/<%= product.id %>">
         <li>
-        <%= product.title %>
+          <%= product.title %>
         </li>
     </a>
   <% end %>

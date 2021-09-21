@@ -9,7 +9,7 @@
             <ul>
         <% elsif order_id != order_item["order_id"] %>
             <h5> Total: <%= @orders_details[order_id][:total]%> </h5>
-            <h5> Dicount: <%= @orders_details[order_id][:discount]%> </h5>
+            <h5> Discount: <%= @orders_details[order_id][:discount]%> </h5>
             <h5> Paid: <%= @orders_details[order_id][:total] - @orders_details[order_id][:discount]%> </h5>
             </ul>
             <% order_id = order_item["order_id"]%>

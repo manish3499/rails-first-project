@@ -14,6 +14,7 @@ class LoginController < ApplicationController
       # }
       if user.user_group == "customer"
         # render json: {message: "customer login"}
+        session[:type] = "customer"
         redirect_to "/products"
       elsif user.user_group == "admin"
         #render json: {message: "admin login"}
@@ -24,5 +25,11 @@ class LoginController < ApplicationController
     else
       render json: {status: 401}
     end
+  end
+
+  def logout
+    session[:user_id] = nil
+    session[:type] = nil
+    redirect_to "/products"
   end
 end
