@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     cart_items.each do |item|
       item.update(order_id: order_id)
     end
+    redirect_to "/products"
   end
 
   def index

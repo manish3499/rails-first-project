@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.create!(title: params["title"], price: params["price"].to_f, category: params["category"], description: params["description"], image: params["image"])
-    render json: {message: "Product added", product_id: product.id}
+    #render json: {message: "Product added", product_id: product.id}
+    redirect_to "/products/new"
   end
 end

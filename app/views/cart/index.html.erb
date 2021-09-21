@@ -9,6 +9,8 @@
 
 <h4>Grand total: <%= @grand_total%></h4>
 
+<p> Use coupon code "10OFF", "20OFF", "30OFF" ... "90OFF" to avail respective discounts. Do not leave blank</p>
+
 <div>
     <%= form_with url: "/orders", method: :post do |form| %>
     <%= form.label :coupon, "Coupon code:" %>

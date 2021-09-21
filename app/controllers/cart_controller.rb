@@ -12,7 +12,7 @@ class CartController < ApplicationController
 
   def create
     cart_item = CartItem.create!(user_id: session[:user_id], product_id: params["product_id"].to_i, quantity: params["quantity"].to_i, order_id: -1)
-    render json: {message: "success"}
-    #redirect_to "/products"
+    #render json: {message: "success"}
+    redirect_to "/products"
   end
 end
