@@ -1,4 +1,5 @@
 class CartController < ApplicationController
+  before_action :save_url, except: :create
   before_action :check_login
 
   def index
@@ -18,8 +19,14 @@ class CartController < ApplicationController
     redirect_to "/products"
   end
 
+  private
+  def save_url
+    session[:redirect_url] = request.original_url
+  end
+
   def check_login
     if !session[:user_id]
+      session[:redirect] = true
       redirect_to "/login"
       return
     end

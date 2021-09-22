@@ -1,4 +1,6 @@
 class LoginController < ApplicationController
+  after_action :reset, only: :index
+
   def index
   end
 
@@ -15,7 +17,12 @@ class LoginController < ApplicationController
       if user.user_group == "customer"
         # render json: {message: "customer login"}
         session[:type] = "customer"
-        redirect_to "/products"
+        #p "+++++++++++++++++++++ #{session[:redirect]} ++++++++++++++++++++++++"
+        if session[:redirect] && session[:redirect_url]
+          redirect_to session[:redirect_url]
+        else
+          redirect_to "/products"
+        end
       elsif user.user_group == "admin"
         #render json: {message: "admin login"}
         redirect_to "/products/new"
@@ -32,4 +39,9 @@ class LoginController < ApplicationController
     session[:type] = nil
     redirect_to "/products"
   end
+
+  private
+    def reset
+        #p "+++++++++++++++++ login reset +++++++++++++++++++"
+    end
 end

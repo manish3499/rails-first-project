@@ -25,5 +25,9 @@
     <div class="main">
       <%= yield %>
     </div>
+    <div>
+      <p> <%= session[:redirect]%> </p>
+      <p> <%= session[:redirect_url]%></p>
+    </div>
   </body>
 </html>
