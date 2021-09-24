@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  get 'test', to: "test#index"
+  
   resources :coupons
   get 'orders/create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   post "/orders", to: "orders#create"
 
   get 'admin', to: "admin#index"
+
+  #get 'test', to: "test#index"
 end

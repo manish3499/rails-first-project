@@ -17,7 +17,7 @@ class LoginController < ApplicationController
       if user.user_group == "customer"
         # render json: {message: "customer login"}
         session[:type] = "customer"
-        #p "+++++++++++++++++++++ #{session[:redirect]} ++++++++++++++++++++++++"
+        p "+++++++++++++++++++++ #{session[:redirect]}  #{session[:redirect_url]} ++++++++++++++++++++++++"
         if session[:redirect] && session[:redirect_url]
           redirect_to session[:redirect_url]
         else

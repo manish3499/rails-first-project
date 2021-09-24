@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
     private
     def reset
-        p "+++++++++++++++++ application reset +++++++++++++++++++"
+        #p "+++++++++++++++++ application reset +++++++++++++++++++"
         session[:redirect] = false
     end
 end
